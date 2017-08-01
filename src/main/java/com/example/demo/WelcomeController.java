@@ -17,6 +17,9 @@ public class WelcomeController {
     @Value("${welcome.message:test}")
     private String message = "Hello World";
 
+    @Value("${version}")
+    private String version = "0";
+
     @ModelAttribute("pageCount")
     AtomicInteger getPageCount() {
         return new AtomicInteger();
@@ -25,6 +28,7 @@ public class WelcomeController {
     @RequestMapping("/")
     public String welcome(@ModelAttribute("pageCount") AtomicInteger pageCount, Map<String, Object> model) {
         model.put("message", this.message);
+        model.put("version", this.version);
         model.put("count", pageCount.incrementAndGet());
         return "welcome";
     }

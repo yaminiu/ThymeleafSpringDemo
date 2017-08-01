@@ -50,6 +50,27 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>com.google.code.maven-replacer-plugin</groupId>
+				<artifactId>maven-replacer-plugin</artifactId>
+				<version>1.3.7</version>
+				<executions>
+					<execution>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>replace</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<includes>
+						<include>target/**/*.properties</include>
+					</includes>
+					<regex>false</regex>
+					<token>@VERSION@</token>
+					<value>${maven.build.timestamp}</value>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
