@@ -20,6 +20,9 @@ public class WelcomeController {
     @Value("${version}")
     private String version = "0";
 
+    @Value("${environment}")
+    private String environment = "undefined";
+
     @ModelAttribute("pageCount")
     AtomicInteger getPageCount() {
         return new AtomicInteger();
@@ -29,6 +32,7 @@ public class WelcomeController {
     public String welcome(@ModelAttribute("pageCount") AtomicInteger pageCount, Map<String, Object> model) {
         model.put("message", this.message);
         model.put("version", this.version);
+        model.put("environment", this.environment);
         model.put("count", pageCount.incrementAndGet());
         return "welcome";
     }
