@@ -5,7 +5,7 @@ pipeline {
         jdk 'Java 9'
     }
     environment {
-        PATH = tool('Octo CLI') + File.Separator + 'octocli' + File.pathSeparator + PATH
+        PATH = "${tool('Octo CLI')}${File.Separator}octocli${File.pathSeparator}${PATH}"
     }
     stages {
         stage ('Initialize') {
