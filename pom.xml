@@ -32,8 +32,7 @@
     <distributionManagement>
         <snapshotRepository>
             <id>test-nexus</id>
-            <!-- This is not a static IP, and constantly changes, so replace it with a new value to do an upload -->
-            <url>http://54.226.213.253:8081/repository/maven-snapshots/</url>
+            <url>http://52.55.81.218:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
     <properties>
